@@ -1,0 +1,188 @@
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Global styles */
+
+/* Glitter & shimmer animations */
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4) rotate(0deg); }
+  25%       { opacity: 1; transform: scale(1.4) rotate(45deg); }
+  75%       { opacity: 0.6; transform: scale(1) rotate(135deg); }
+}
+
+@keyframes twinkle2 {
+  0%, 100% { opacity: 0.1; transform: scale(0.6) rotate(180deg); }
+  40%       { opacity: 1;   transform: scale(1.5) rotate(90deg); }
+  70%       { opacity: 0.3; transform: scale(0.8) rotate(270deg); }
+}
+
+/* Shimmery light-blue glitter background */
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    120deg,
+    #b3ecff, #d6f5ff, #ffffff, #c2f0ff,
+    #a0e4f8, #e8fbff, #b8eeff, #ffffff
+  );
+  background-size: 400% 400%;
+  animation: shimmer 4s ease infinite;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Glitter layer 1 — gold/white stars */
+body::before {
+  content: '✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶';
+  position: fixed;
+  top: 0; left: 0;  
+  width: 100%; height: 100%;
+  font-size: 1.3rem;
+  color: rgba(161, 94, 163, 0.8);
+  word-break: break-all;
+  line-height: 3rem;
+  letter-spacing: 2rem;
+  pointer-events: none;
+  animation: twinkle 2s ease-in-out infinite;
+  text-shadow: 0 0 8px rgb(177, 21, 177), 0 0 20px rgba(255, 255, 255, 0.7);
+  z-index: 0;
+}
+
+/* Glitter layer 2 — white sparkles, offset timing */
+body::after {
+  content: '✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶ ✦ ✧ ★ ✶';'✩ · ✧ · ✩ · ✧ · ✩ · ✧ · ✩ · ✧ · ✩ · ✧ · ✩ · ✧ · ✩ · ✧ · ✩ · ✧ · ✩';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  font-size: 1rem;
+  color: rgba(57, 149, 177, 0.9);
+  word-break: break-all;
+  line-height: 5rem;
+  letter-spacing: 2.5rem;
+  pointer-events: none;
+  animation: twinkle2 2.8s ease-in-out infinite;
+  animation-delay: 0.9s;
+  text-shadow: 0 0 6px rgb(200, 239, 250), 0 0 14px rgb(97, 66, 133);
+  z-index: 0;
+}
+
+ 
+
+
+.status {
+  text-align: center;
+  gap: 0.20rem;
+  font-size: 23px;
+  font-weight: bold;
+  color: #6c3ad6;
+}
+
+.detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(32, 195, 216, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.detail-card {
+  background: #13aacf;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  gap: 1.5rem;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  position: relative;
+}
+
+.detail-card img {
+  display: flex;
+  min-width: 260px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.detail-body {
+  padding: 1.5rem 1.5rem 1.5rem 0;
+  overflow-y: auto;
+}
+
+.detail-body h2 {
+  font-size: 1.6rem;
+  color: #201dcf;
+  margin-bottom: 1rem;
+}
+
+.detail-section {
+  margin-bottom: 1rem;
+}
+
+.detail-section h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6c3ad6;
+  margin-bottom: 0.4rem;
+}
+
+.detail-section ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-section ul li {
+  font-size: 0.40 rem;
+  color: #efeaf8;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(70, 129, 126, 0.4);
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card.active {
+  outline: 2px solid #f9c6d0;
+}
+
+/* Mobile: stack detail card vertically */
+@media (max-width: 540px) {
+  .detail-card {
+    flex-direction: column;
+  }
+
+  .detail-card img {
+    width: 100%;
+    min-width: unset;
+    height: 240px;
+  }
+
+  .detail-body {
+    padding: 1rem;
+  }
+}
