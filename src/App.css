@@ -73,9 +73,6 @@ body::after {
   z-index: 0;
 }
 
- 
-
-
 .status {
   text-align: center;
   gap: 0.20rem;
@@ -118,7 +115,6 @@ body::after {
   padding: 1.5rem 1.5rem 1.5rem 0;
   overflow-y: auto;
 }
-
 .detail-body h2 {
   font-size: 1.6rem;
   color: #201dcf;
